@@ -1,0 +1,10 @@
+h1 Recent articles
+ul.list-group
+  - @articles.each do |article|
+    .list-group-item
+      .media
+        .media-body
+          h4.media-heading
+            = article.title
+          = article.text
+

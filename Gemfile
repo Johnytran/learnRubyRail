@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'slim', '~> 2.1.0'
 gem 'pg', '~> 0.17.1'
+gem 'bootstrap-sass',       '3.2.0.0'
 
 group :development, :test do
   gem 'rspec-rails',      ">= 2.0.0.beta"
@@ -41,6 +42,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'spring'
+  gem "binding_of_caller"
 end
 
 # Use ActiveModel has_secure_password

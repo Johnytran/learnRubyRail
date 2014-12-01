@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 describe ArticlesController do
+
+  describe 'GET #index' do
+    let(:articles) { create_list(:article, 2) }
+    
+    def do_request
+      get :index, articles: articles
+    end 
+
+    it 'returns list of article' do
+      do_request
+      expect(assigns(:articles).size).to eq 2
+      expect(assigns(:articles)).to match articles
+      expect(response).to render_template :index
+    end
+  end
+
   describe 'GET #new' do
     def do_request
       get :new

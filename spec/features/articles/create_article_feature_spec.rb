@@ -6,7 +6,6 @@ describe 'create an article' do
 
     fill_in 'Title', with: 'Article 1'
     fill_in 'Text', with: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod'
-    p page.body
     click_on 'Submit'
     expect(page.body).to have_content 'Article is created successfully'
   end

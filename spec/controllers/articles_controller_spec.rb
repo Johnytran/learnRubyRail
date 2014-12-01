@@ -11,4 +11,28 @@ describe ArticlesController do
       expect(response).to render_template :new
     end
   end 
-end
+
+  describe 'POST #create' do
+    let!(:article) { attributes_for (:article) }
+
+    def do_request
+      post :create, article: article
+    end
+
+    context 'success' do
+      it 'creates an article' do
+        do_request
+        expect(Article.all.size).to eq 1
+        expect(response).to redirect_to articles_path
+      end
+    end
+
+    context 'failure' do
+      it 'render to view: new' do
+        article[:title] = nil
+        do_request
+        expect(response).to render_template :new
+      end
+    end
+  end
+end 

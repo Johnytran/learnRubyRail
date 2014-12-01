@@ -33,6 +33,11 @@ group :development, :test do
   gem 'rspec-rails',      ">= 2.0.0.beta"
 end
 
+group :test do
+  gem 'capybara', '~> 2.4.4'
+  gem 'shoulda'
+end
+
 group :development do
   gem 'better_errors'
   gem 'spring'

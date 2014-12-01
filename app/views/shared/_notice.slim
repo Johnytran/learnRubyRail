@@ -1,0 +1,6 @@
+.container
+  .row
+    - if notice.present?
+      div.alert.alert-info.fade.in  = notice
+    - if alert.present?
+      div.alert.alert-info = alert

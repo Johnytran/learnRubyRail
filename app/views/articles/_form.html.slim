@@ -1,0 +1,12 @@
+h1
+  | New Article
+= form_for :article do |f_article| 
+  .form-group
+    = f_article.label :title
+    = f_article.text_field :title, class: 'form-control'
+
+  .form-group
+    = f_article.label :text
+    = f_article.text_area :text, class: 'form-control'
+  button class= 'btn btn-default' type="submit"
+    | Submit

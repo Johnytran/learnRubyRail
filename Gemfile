@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'slim', '~> 2.1.0'
 gem 'pg', '~> 0.17.1'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'rails_utils'
 
 group :development, :test do
   gem 'rspec-rails',      ">= 2.0.0.beta"

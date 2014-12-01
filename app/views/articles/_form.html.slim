@@ -1,4 +1,4 @@
-= form_for :article do |f_article| 
+= form_for :article, url: articles_path do |f_article| 
   .form-group
     = f_article.label :title
     = f_article.text_field :title, class: 'form-control'

@@ -32,6 +32,7 @@ gem 'bootstrap-sass',       '3.2.0.0'
 gem 'rails_utils'
 gem 'ckeditor'
 gem 'font-awesome-rails'
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'rspec-rails',      ">= 2.0.0.beta"

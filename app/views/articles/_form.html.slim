@@ -1,7 +1,11 @@
 = form_for :article, url: articles_path do |f_article| 
   .form-group
     = f_article.label :title
-    = f_article.text_field :title, class: 'form-control'
+    = f_article.text_field :title, class: 'form-control', required: 'required'
+
+  .form-group
+    = f_article.label :introtext, 'Intro text'
+    = f_article.cktext_area :introtext, class: 'form-control'
 
   .form-group
     = f_article.label :text

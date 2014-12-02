@@ -11,7 +11,7 @@ CKEDITOR.editorConfig = function (config) {
     { name: 'links', items: ['Link', 'Unlink', 'Anchor'] }, '/', 
     { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] }, 
     { name: 'colors', items: ['TextColor', 'BGColor'] }, 
-    { name: 'insert', items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'] }
+    { name: 'insert', items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'] }
   ];
   config.toolbar = 'Menu';
 }

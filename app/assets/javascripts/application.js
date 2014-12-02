@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require ckeditor/ckeditor
+//= require default
+//= require jquery.validate.js
 //= require_tree .
 

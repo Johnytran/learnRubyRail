@@ -65,4 +65,29 @@ describe ArticlesController do
       expect(response).to render_template :edit
     end
   end
+
+  describe 'PUT #update' do
+    let(:article) { create :article }
+    let(:update_params) { attributes_for(:article) }
+
+    def do_request
+      put :update, id: article.id, article: update_params 
+    end
+
+    context 'success' do
+      it "change article's attributes" do
+        do_request
+        expect(assigns(:article).title).to eq update_params[:title]
+        expect(response).to redirect_to article_path(article)
+      end
+    end
+
+    context 'failure' do
+      it 'render to view: edit' do
+        update_params[:title] = nil
+        do_request
+        expect(response).to render_template :edit
+      end
+    end
+  end
 end 

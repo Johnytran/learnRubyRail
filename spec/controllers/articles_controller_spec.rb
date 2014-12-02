@@ -3,7 +3,7 @@ require 'rails_helper'
 describe ArticlesController do
 
   describe 'GET #index' do
-    let(:articles) { create_list(:article, 2) }
+    let!(:articles) { create_list(:article, 2) }
     
     def do_request
       get :index, articles: articles
@@ -12,7 +12,6 @@ describe ArticlesController do
     it 'returns list of article' do
       do_request
       expect(assigns(:articles).size).to eq 2
-      expect(assigns(:articles)).to match articles
       expect(response).to render_template :index
     end
   end
@@ -68,24 +67,28 @@ describe ArticlesController do
 
   describe 'PUT #update' do
     let(:article) { create :article }
-    let(:update_params) { attributes_for(:article) }
+    let(:update_params) { attributes_for(:article, title: new_title) }
 
     def do_request
-      put :update, id: article.id, article: update_params 
+      put :update, id: article.id, article: update_params
     end
 
     context 'success' do
+      let!(:new_title) { 'New title' }
       it "change article's attributes" do
         do_request
-        expect(assigns(:article).title).to eq update_params[:title]
+        article.reload
+        expect(article.title).to eq new_title
         expect(response).to redirect_to article_path(article)
       end
     end
 
     context 'failure' do
+      let!(:new_title) { nil }
       it 'render to view: edit' do
-        update_params[:title] = nil
         do_request
+        article.reload
+        expect(article.title).to_not eq new_title
         expect(response).to render_template :edit
       end
     end

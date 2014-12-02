@@ -5,7 +5,8 @@ ul.list-group
       .media
         .media-body
           h4.media-heading
-            = article.title
-          = article.text.html_safe
+            = link_to article.title, edit_article_path(article)
+          - unless article.introtext.nil?  
+            = article.introtext.html_safe
 = will_paginate @articles
 

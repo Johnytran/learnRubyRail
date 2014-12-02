@@ -51,4 +51,18 @@ describe ArticlesController do
       end
     end
   end
+
+  describe 'GET #edit' do
+    let(:article) { create :article }
+
+    def do_request
+      get :edit, id: article.id
+    end
+
+    it 'render to view: edit' do
+      do_request
+      expect(assigns(:article)).to match article
+      expect(response).to render_template :edit
+    end
+  end
 end 

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  
+
   def index
     @articles = Article.all.recent.paginate(page: page_params)
   end
@@ -15,6 +15,10 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @article = Article.find(article_id)
   end
 
   private

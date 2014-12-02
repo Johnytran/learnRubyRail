@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.all
+    @articles = Article.all.recent.paginate(page: page_params)
   end
 
   def new
@@ -24,5 +24,9 @@ class ArticlesController < ApplicationController
 
     def article_id
       params.require(:id)
+    end
+
+    def page_params
+      params.fetch :page, 1
     end
 end

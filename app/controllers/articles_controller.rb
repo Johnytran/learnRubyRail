@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(article_id)
     if @article.update_attributes(update_params)
-      redirect_to article_url(@article), notiec: 'Article is updated successfully'
+      redirect_to article_url(@article), notice: 'Article is updated successfully'
     else
       render :edit
     end

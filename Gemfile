@@ -34,6 +34,7 @@ gem 'ckeditor'
 gem 'font-awesome-rails'
 gem 'will_paginate', '~> 3.0.6'
 gem 'simple_form'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails',      ">= 2.0.0.beta"
